@@ -124,8 +124,6 @@ h1 {
   text-align: center;
 }
 
-/* card styling starts here */
-
 .list { margin: 0 auto; }
 
 .cards {
@@ -156,16 +154,15 @@ h1 {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid;
 }
 
 .names li {
-  max-width: 100%;
-  width: auto;
   min-width: 25%;
+  width: auto;
+  max-width: 100%;
   max-height: 100%;
   height: auto;
-  min-height: 25%;
+  min-height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,14 +178,91 @@ h1 {
 
 /* card styling ends here */
 
+/* form styling starts here */
+
+.inputs {
+  width: 100%;
+  margin: 50px auto;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8%;
+}
+
+.textarea {
+  width: 63%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  height: 60vh;
+  padding: 20px;
+  border: 1px solid #d3d7d8;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 15px;
+  outline: none;
+  resize: none;
+}
+
+.update { width: 33%; }
+
+.update div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.update label {
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 22px;
+}
+
+.update input {
+  width: 70%;
+  height: 55px;
+  border: 1px solid #d3d7d8;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 22px;
+  outline: none;
+  text-indent: 10px;
+}
+
+form button {
+  width: 40%;
+  padding: 15px 0;
+  margin-top: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0186ef;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  outline: none;
+  transition: .5s ease;
+}
+
+form button:hover { background-color: #4fa7eb; }
+
+.error {
+  display: none;
+  position: absolute;
+  bottom: -20px;
+  color: #ec6363;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* form styling ends here */
+
 /*=================================
   main styling ends here
 =================================*/
-
-/*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  
