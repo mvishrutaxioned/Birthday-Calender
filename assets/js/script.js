@@ -62,6 +62,17 @@ $(document).ready(() => {
     $('textarea').on('blur', e => checkTextarea(textArea, 'textarea'));
     $('#year').on('blur', e => checkNumber(yearInput, 'year'));
 
+    const generateData = (json, yearInput) => {
+        let data = JSON.parse(json);
+        let dateArr = [];
+        let newDateArr = [];
+
+        $(data).filter((i, e) => dateArr.push(e.birthday));
+        $(dateArr).filter((i, e) => newDateArr.push(`${e.slice(0,6)}${yearInput}`));
+
+        displayData(newDateArr)
+    }
+
     // on form submit    
     $('#birthday').submit(e => {
         e.preventDefault();
@@ -70,7 +81,7 @@ $(document).ready(() => {
         let checkNum2 = checkNumber(yearInput, 'year');
         
         if(checkNum1 == 1 && checkNum2 == 1) {
-            console.log('run')
+            generateData(textArea, yearInput)
         } else {
             console.log('nope')
         }
