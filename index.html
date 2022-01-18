@@ -15,85 +15,63 @@
       <!--main section start-->
       <main>
         <h1>Birthday Cal</h1>
-        <section class="list">
+        <div class="list">
           <div class="wrapper">
             <ul class="cards">
-              <li class="card">
-                <h2>MON</h2>
-                <ul class="names">
-                  <li>DT</li>
-                </ul>
-              </li>
-              <li class="card">
-                <h2>TUE</h2>
-                <ul class="names">
-                  <li>AS</li>
-                  <li>BS</li>
-                  <li>MT</li>
-                  <li>DN</li>
-                  <li>TL</li>
-                  <li>JM</li>
-                  <li>RO</li>
-                  <li>ES</li>
-                </ul>
-              </li>
-              <li class="card">
-                <h2>WED</h2>
-                <ul class="names">
-                  <li>SA</li>
-                  <li>TG</li>
-                  <li>CS</li>
-                </ul>
-              </li>
-              <li class="card">
-                <h2>THU</h2>
-                <ul class="names">
-                  <li>JB</li>
-                  <li>BT</li>
-                  <li>PB</li>
-                  <li>DS</li>
-                </ul>
-              </li>
-              <li class="card">
-                <h2>FRI</h2>
-                <ul class="names">
-                  <li>SS</li>
-                  <li>RS</li>
-                  <li>KD</li>
-                  <li>RB</li>
-                  <li>SC</li>
-                </ul>
-              </li>
-              <li class="card">
-                <h2>SAT</h2>
-                <ul class="names">
-                  <li>VT</li>
-                  <li>JL</li>
-                  <li>JE</li>
-                </ul>
-              </li>
-              <li class="card">
+              <li class="card empty">
                 <h2>SUN</h2>
                 <ul class="names">
-                  <li>ST</li>
-                  <li>CL</li>
-                  <li>TO</li>
-                  <li>SB</li>
-                  <li>TY</li>
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>MON</h2>
+                <ul class="names">
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>TUE</h2>
+                <ul class="names">
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>WED</h2>
+                <ul class="names">
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>THU</h2>
+                <ul class="names">
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>FRI</h2>
+                <ul class="names">
+                  <li>name list</li>
+                </ul>
+              </li>
+              <li class="card empty">
+                <h2>SAT</h2>
+                <ul class="names">
+                  <li>name list</li>
                 </ul>
               </li>
             </ul>
           </div>
-        </section>
-        <section class="inputs">
+        </div>
+        <div class="inputs">
           <div class="wrapper">
-            <form action="#FIXME" method="POST">
-              <div>
+            <form action="#FIXME" method="POST" id="birthday">
+              <div class="textarea">
                 <textarea name="data" id="data"></textarea>
-                <span class="error jsonErr">Error</span>
+                <span class="error textareaErr">Error</span>
               </div>
-              <div>
-                <div class="update">
+              <div class="update">
+                <div>
                   <label for="year">Year</label>
                   <input type="text" name="year" id="year" />
                   <span class="error yearErr">Error</span>
@@ -101,8 +79,9 @@
                 <button type="submit">UPDATE</button>
               </div>
             </form>
+            <p class="note"><strong>NOTE: </strong> Date Format (month/day/year - 12/30/2000)</p>
           </div>
-        </section>
+        </div>
       </main>
       <!--main section end-->
     </div>
