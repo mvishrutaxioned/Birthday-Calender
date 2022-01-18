@@ -5,44 +5,43 @@ $(document).ready(() => {
     let textArea = $('textarea').val();
     let yearInput = $('#year').val();
 
-    // input value updation on input
+    // adding empty className
+    $(`.card .names`).html('<i class="far fa-frown-open"></i>');
+
+    // textarea value updation on input
     $('textarea').on('input', e => {
         textArea = $('textarea').val();
-        checkTextarea(textArea, 'textarea')
+        formValidation(textArea, 'textarea')
     });
 
+    // year value updation on input
     $('#year').on('input', e => {
         yearInput = $('#year').val();
-        checkNumber(yearInput, 'year')
+        formValidation(yearInput, 'year')
     });
 
     // function to validate JSON string
     function IsValidJSONString(str) {
-        try {
-            JSON.parse(str);
-        } catch (e) {
-            return false;
-        }
+        try { JSON.parse(str) }
+        catch (e) { return false }
         return true;
     }
 
-    // check textarea functionality
-    function checkTextarea(elem, str) {
+    // form validation functionality
+    function formValidation(elem, str) {
         if(elem.length == 0) displayError('Above field is required', `${str}`)
-        else if (!IsValidJSONString(elem)) displayError(`Please enter valid JSON`, `${str}`)
-        else {
-            displaySuccess(`${str}`)
-            return 1
-        }
-    }
-
-    // check number functionality
-    function checkNumber(elem, str) {
-        if(elem.length == 0) displayError('Above field is required', `${str}`)
-        else if (regexNum.test(elem) || elem.length != 4) displayError(`Please enter valid year`, `${str}`)
-        else {
-            displaySuccess(`${str}`)
-            return 1
+         else if(str == 'textarea') {
+            if (!IsValidJSONString(elem)) displayError(`Please enter valid JSON`, `${str}`)
+            else {
+                displaySuccess(`${str}`)
+                return 1
+            }
+        } else if (str == 'year') {
+            if (regexNum.test(elem) || elem.length != 4) displayError(`Please enter valid year`, `${str}`)
+            else {
+                displaySuccess(`${str}`)
+                return 1
+            }
         }
     }
 
@@ -59,15 +58,13 @@ $(document).ready(() => {
     }
 
     // checkForm on input blur
-    $('textarea').on('blur', e => checkTextarea(textArea, 'textarea'));
-    $('#year').on('blur', e => checkNumber(yearInput, 'year'));
+    $('textarea').on('blur', e => formValidation(textArea, 'textarea'));
+    $('#year').on('blur', e => formValidation(yearInput, 'year'));
 
+    // generate data functionality
     const generateData = (json, yearInput) => {
         let data = JSON.parse(json);
-        let dateArr = [];
-        let newDateArr = [];
-        let nameInitial = [];
-        let jsonData = [];
+        let dateArr=[], newDateArr=[], nameInitial=[], jsonData=[];
 
         $(data).filter((i, e) => dateArr.push(e.birthday));
         $(data).filter((i, e) => {
@@ -90,6 +87,7 @@ $(document).ready(() => {
         displayData(jsonData)
     }
 
+    // display data functionality
     const displayData = (data) => {
         $(`.card`).addClass('empty');
         $(`.card .names`).html('<i class="far fa-frown-open"></i>');
@@ -107,13 +105,9 @@ $(document).ready(() => {
     $('#birthday').submit(e => {
         e.preventDefault();
 
-        let checkNum1 = checkTextarea(textArea, 'textarea');
-        let checkNum2 = checkNumber(yearInput, 'year');
+        let checkNum1 = formValidation(textArea, 'textarea');
+        let checkNum2 = formValidation(yearInput, 'year');
         
-        if(checkNum1 == 1 && checkNum2 == 1) {
-            generateData(textArea, yearInput)
-        } else {
-            console.log('nope')
-        }
+        if(checkNum1 == 1 && checkNum2 == 1) generateData(textArea, yearInput)
     })
 })
